@@ -83,7 +83,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5DC7CC024203E9E00FD792D /* Build configuration list for PBXNativeTarget "LocalizedStoryboard" */;
 			buildPhases = (
-				B5DC7CCD24205E0100FD792D /* ShellScript */,
+				B5DC7CCD24205E0100FD792D /* Run Script for localizedKey exists */,
 				B5DC7CA824203E9B00FD792D /* Sources */,
 				B5DC7CA924203E9B00FD792D /* Frameworks */,
 				B5DC7CAA24203E9B00FD792D /* Resources */,
@@ -146,7 +146,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B5DC7CCD24205E0100FD792D /* ShellScript */ = {
+		B5DC7CCD24205E0100FD792D /* Run Script for localizedKey exists */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -155,6 +155,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script for localizedKey exists";
 			outputFileListPaths = (
 			);
 			outputPaths = (
