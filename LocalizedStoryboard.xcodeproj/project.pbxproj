@@ -83,6 +83,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5DC7CC024203E9E00FD792D /* Build configuration list for PBXNativeTarget "LocalizedStoryboard" */;
 			buildPhases = (
+				B5DC7CCD24205E0100FD792D /* ShellScript */,
 				B5DC7CA824203E9B00FD792D /* Sources */,
 				B5DC7CA924203E9B00FD792D /* Frameworks */,
 				B5DC7CAA24203E9B00FD792D /* Resources */,
@@ -143,6 +144,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5DC7CCD24205E0100FD792D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\nfor file in `\\find . -name \\*.storyboard`; do\n    IFS=$'\\n'\n    for xmlKey in `\\grep 'keyPath=\"localizedKey\"' ./LocalizedStoryboard/Base.lproj/Main.storyboard`; do\n        localizedKey=`echo $xmlKey | sed -e 's/.* keyPath=\"localizedKey\" value=\"\\([0-9a-zA-Z_-]*\\)\".*/\\1/g'`\n        for localizedStringFile in `\\find ${SRCROOT} -name Localizable.strings`; do\n            grep \"\\\"${localizedKey}\\\" =\" $localizedStringFile > /dev/null 2>&1\n            if [ $? != 0 ]; then\n                echo \"not exists key '${localizedKey}' in ${localizedStringFile}\"\n                exit 1\n            fi\n        done\n    done\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B5DC7CA824203E9B00FD792D /* Sources */ = {
